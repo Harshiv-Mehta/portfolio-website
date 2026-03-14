@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshiv Mehta - Full Stack Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">Harshiv</span>
+                <span class="logo-dot">.</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Hi, I'm <span class="gradient-text">Harshiv Mehta</span></h1>
+                <p class="hero-subtitle">Full Stack Developer | B.Tech CSE Student | AI Enthusiast</p>
+                <p class="hero-description">Building beautiful, responsive web applications with modern technologies</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get In Touch</button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">View My Work</button>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://www.linkedin.com/in/harshiv-mehta" target="_blank" class="social-icon" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/harshiv-mehta" target="_blank" class="social-icon" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/919307053775" target="_blank" class="social-icon" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:Harshivmehta@gmail.com" class="social-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-animation">
+                <div class="floating-card card-1">
+                    <i class="fas fa-code"></i>
+                    <p>JavaScript</p>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-database"></i>
+                    <p>MongoDB</p>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fab fa-node-js"></i>
+                    <p>Node.js</p>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+            <p>Scroll to explore</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-paragraph">
+                        I'm a passionate B.Tech Computer Science student at DESPU University with a strong foundation in full-stack development. I love creating web applications that combine beautiful design with robust functionality.
+                    </p>
+                    <p class="about-paragraph">
+                        With experience in modern web technologies like Node.js, Express, and MongoDB, I've built several projects ranging from anonymous messaging platforms to IoT applications. I'm constantly learning and exploring new technologies to stay ahead in this ever-evolving field.
+                    </p>
+                    <p class="about-paragraph">
+                        Beyond coding, I'm interested in AI tools, content creation, and entrepreneurship. I believe in creating solutions that make a real impact on people's lives.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>4+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2024</h3>
+                            <p>Started College</p>
+                        </div>
+                        <div class="stat">
+                            <h3>8.24</h3>
+                            <p>Current CGPA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="profile-card">
+                        <div class="profile-placeholder">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <!-- Languages -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-code-branch"></i> Languages
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">C</div>
+                        <div class="skill-badge">C++</div>
+                        <div class="skill-badge">Java</div>
+                        <div class="skill-badge">Python</div>
+                        <div class="skill-badge">JavaScript</div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-globe"></i> Web Development
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">HTML5</div>
+                        <div class="skill-badge">CSS3</div>
+                        <div class="skill-badge">Node.js</div>
+                        <div class="skill-badge">Express.js</div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-database"></i> Databases
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">MongoDB</div>
+                        <div class="skill-badge">SQL</div>
+                        <div class="skill-badge">Firebase</div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-tools"></i> Tools & Platforms
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">Git</div>
+                        <div class="skill-badge">GitHub</div>
+                        <div class="skill-badge">Postman</div>
+                        <div class="skill-badge">VS Code</div>
+                        <div class="skill-badge">Canva</div>
+                        <div class="skill-badge">CapCut</div>
+                    </div>
+                </div>
+
+                <!-- Data Structures -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-project-diagram"></i> Data Structures
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">Arrays</div>
+                        <div class="skill-badge">Linked Lists</div>
+                        <div class="skill-badge">Stack & Queue</div>
+                        <div class="skill-badge">Trees</div>
+                        <div class="skill-badge">Sorting</div>
+                        <div class="skill-badge">Recursion</div>
+                    </div>
+                </div>
+
+                <!-- Strengths -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-star"></i> Strengths
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">Problem Solving</div>
+                        <div class="skill-badge">Fast Learner</div>
+                        <div class="skill-badge">Teamwork</div>
+                        <div class="skill-badge">Creativity</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1: WhisperSpace -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>WhisperSpace</h3>
+                    </div>
+                    <p class="project-subtitle">Anonymous Messaging Platform</p>
+                    <p class="project-description">
+                        A full-stack web application that enables anonymous messaging between users. Features a robust backend with Node.js and Express.js, MongoDB database for secure message storage, and a clean, intuitive frontend.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" title="Live Demo">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                        <a href="https://github.com" target="_blank" class="project-link" title="GitHub Repository">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: ConnectLocal -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>ConnectLocal</h3>
+                    </div>
+                    <p class="project-subtitle">Vendor-Farmer Platform</p>
+                    <p class="project-description">
+                        A marketplace platform connecting local farmers with vendors. Implements trusted shop identity verification and secure transaction management to build trust between parties.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Full Stack</span>
+                        <span class="tech-tag">Database</span>
+                        <span class="tech-tag">Authentication</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" title="Live Demo">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                        <a href="https://github.com" target="_blank" class="project-link" title="GitHub Repository">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Price Comparison -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>QuickComm</h3>
+                    </div>
+                    <p class="project-subtitle">Price Comparison Website</p>
+                    <p class="project-description">
+                        A quick commerce tool that aggregates and compares prices across multiple e-commerce platforms. Features advanced filtering, search functionality, and real-time price updates.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Web Scraping</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">APIs</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" title="Live Demo">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                        <a href="https://github.com" target="_blank" class="project-link" title="GitHub Repository">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Arduino Smart Car -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Arduino Smart Car</h3>
+                    </div>
+                    <p class="project-subtitle">IoT Project</p>
+                    <p class="project-description">
+                        An innovative IoT project featuring a voice-controlled, gesture-responsive Arduino-based car. Integrates Bluetooth connectivity for remote control and demonstrates hardware-software integration.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Bluetooth</span>
+                        <span class="tech-tag">C++</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" title="Live Demo">
+                            <i class="fas fa-external-link-alt"></i> Info
+                        </a>
+                        <a href="https://github.com" target="_blank" class="project-link" title="GitHub Repository">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Education</h2>
+            <div class="timeline">
+                <!-- Career -->
+                <div class="timeline-section">
+                    <h3 class="timeline-title">
+                        <i class="fas fa-briefcase"></i> Professional Experience
+                    </h3>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Creative Designer</h4>
+                            <p class="timeline-company">YouTube Channels</p>
+                            <p class="timeline-date">2023 – 2024</p>
+                            <ul class="timeline-details">
+                                <li>Designed thumbnails and banners for content creators</li>
+                                <li>Supported content creation and brand development</li>
+                                <li>Managed visual identity across multiple channels</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="timeline-section">
+                    <h3 class="timeline-title">
+                        <i class="fas fa-graduation-cap"></i> Education
+                    </h3>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>B.Tech in Computer Science & Engineering</h4>
+                            <p class="timeline-company">DESPU University</p>
+                            <p class="timeline-date">2024 – 2028</p>
+                            <p class="timeline-gpa">CGPA: <strong>8.24</strong></p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Class 12 (HSC)</h4>
+                            <p class="timeline-company">Khalmadi Junior College</p>
+                            <p class="timeline-date">2022 – 2024</p>
+                            <p class="timeline-gpa">Percentage: <strong>63%</strong></p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Class 10 (CBSE)</h4>
+                            <p class="timeline-company">Vikhe Patil School</p>
+                            <p class="timeline-date">2022</p>
+                            <p class="timeline-gpa">Percentage: <strong>80.80%</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="timeline-section">
+                    <h3 class="timeline-title">
+                        <i class="fas fa-trophy"></i> Achievements
+                    </h3>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Smart India Hackathon</h4>
+                            <p class="timeline-company">College Level Selection</p>
+                            <p class="timeline-date">2024</p>
+                            <ul class="timeline-details">
+                                <li>Selected to represent college in national hackathon</li>
+                                <li>Demonstrated innovative problem-solving skills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages">
+        <div class="container">
+            <h2 class="section-title">Languages</h2>
+            <div class="languages-grid">
+                <div class="language-item">
+                    <h4>English</h4>
+                    <div class="language-level">
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                    </div>
+                </div>
+                <div class="language-item">
+                    <h4>Hindi</h4>
+                    <div class="language-level">
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                    </div>
+                </div>
+                <div class="language-item">
+                    <h4>Marathi</h4>
+                    <div class="language-level">
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                    </div>
+                </div>
+                <div class="language-item">
+                    <h4>Gujarati</h4>
+                    <div class="language-level">
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar filled"></div>
+                        <div class="level-bar empty"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-subtitle">Have a project in mind? Let's collaborate and create something amazing together!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+919307053775">+91 93070 53775</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:Harshivmehta@gmail.com">Harshivmehta@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Availability</h4>
+                            <p>Open for internships & entry-level roles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Harshiv Mehta. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/harshiv-mehta" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/harshiv-mehta" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/919307053775" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:Harshivmehta@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
