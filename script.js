@@ -10,13 +10,11 @@ const storySteps = document.querySelectorAll(".story-step");
 const timeline = document.querySelector(".timeline");
 const timelineCards = document.querySelectorAll(".timeline-card");
 const motionSafeQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-const spotlightItems = document.querySelectorAll(
-    ".highlight-card, .about-card, .stat-card, .skill-card, .project-card, .timeline-card, .contact-card, .contact-item, .story-card"
-);
+const cinematicBlocks = document.querySelectorAll(".cinematic-block");
+const heroSection = document.querySelector(".hero");
 
 setRevealDelays();
 setNestedAnimationIndexes();
-bindSpotlightMotion();
 
 if (menuToggle && navPanel) {
     menuToggle.addEventListener("click", () => {
@@ -189,17 +187,39 @@ function setNestedAnimationIndexes() {
     });
 }
 
-function bindSpotlightMotion() {
+function updateCinematicMotion() {
     if (motionSafeQuery.matches) {
         return;
     }
 
-    spotlightItems.forEach((item) => {
-        item.addEventListener("pointermove", (event) => {
-            const rect = item.getBoundingClientRect();
-            item.style.setProperty("--spotlight-x", `${event.clientX - rect.left}px`);
-            item.style.setProperty("--spotlight-y", `${event.clientY - rect.top}px`);
-        });
+    const viewportHeight = window.innerHeight;
+
+    cinematicBlocks.forEach((block) => {
+        const rect = block.getBoundingClientRect();
+        const center = rect.top + (rect.height / 2);
+        const normalized = (center - (viewportHeight * 0.52)) / viewportHeight;
+        const clamped = Math.max(Math.min(normalized, 1.2), -1.2);
+        const depth = Math.min(Math.abs(clamped), 1);
+
+        block.style.setProperty("--cinematic-shift", `${clamped.toFixed(3)}`);
+        block.style.setProperty("--cinematic-depth", `${depth.toFixed(3)}`);
+        block.style.setProperty("--cinematic-opacity", `${(1 - Math.min(Math.abs(clamped) * 0.24, 0.22)).toFixed(3)}`);
+    });
+
+    if (heroSection) {
+        const rect = heroSection.getBoundingClientRect();
+        const heroProgress = Math.min(Math.max((-rect.top) / Math.max(rect.height, 1), 0), 1);
+        heroSection.style.setProperty("--hero-progress", heroProgress.toFixed(3));
+        heroSection.style.setProperty("--hero-ease", (1 - heroProgress * 0.08).toFixed(3));
+    }
+
+    timelineCards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const midpoint = rect.top + (rect.height / 2);
+        const distance = Math.abs((viewportHeight * 0.5) - midpoint) / viewportHeight;
+        const emphasis = Math.max(0, 1 - (distance * 2.2));
+
+        card.style.setProperty("--timeline-emphasis", emphasis.toFixed(3));
     });
 }
 
@@ -221,6 +241,9 @@ window.addEventListener("load", updateActiveSection);
 window.addEventListener("scroll", updateTimelineProgress, { passive: true });
 window.addEventListener("resize", updateTimelineProgress);
 window.addEventListener("load", updateTimelineProgress);
+window.addEventListener("scroll", updateCinematicMotion, { passive: true });
+window.addEventListener("resize", updateCinematicMotion);
+window.addEventListener("load", updateCinematicMotion);
 
 
 if (contactForm) {
