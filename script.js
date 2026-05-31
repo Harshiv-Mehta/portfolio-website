@@ -6,7 +6,17 @@ const revealItems = document.querySelectorAll(".reveal");
 const sections = document.querySelectorAll("main section[id]");
 const contactForm = document.getElementById("contactForm");
 const counters = document.querySelectorAll("[data-count]");
-const root = document.documentElement;
+const storySteps = document.querySelectorAll(".story-step");
+const timeline = document.querySelector(".timeline");
+const timelineCards = document.querySelectorAll(".timeline-card");
+const motionSafeQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const spotlightItems = document.querySelectorAll(
+    ".highlight-card, .about-card, .stat-card, .skill-card, .project-card, .timeline-card, .contact-card, .contact-item, .story-card"
+);
+
+setRevealDelays();
+setNestedAnimationIndexes();
+bindSpotlightMotion();
 
 if (menuToggle && navPanel) {
     menuToggle.addEventListener("click", () => {
@@ -42,6 +52,44 @@ const revealObserver = new IntersectionObserver(
 
 revealItems.forEach((item) => revealObserver.observe(item));
 
+const storyObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            storySteps.forEach((card) => card.classList.remove("current"));
+            entry.target.classList.add("current");
+        });
+    },
+    {
+        threshold: 0.55,
+        rootMargin: "-10% 0px -20% 0px"
+    }
+);
+
+storySteps.forEach((step) => storyObserver.observe(step));
+
+const timelineObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            timelineCards.forEach((card) => card.classList.remove("current"));
+            entry.target.classList.add("current");
+        });
+    },
+    {
+        threshold: 0.45,
+        rootMargin: "-14% 0px -24% 0px"
+    }
+);
+
+timelineCards.forEach((card) => timelineObserver.observe(card));
+
 const countObserver = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
@@ -60,6 +108,8 @@ const countObserver = new IntersectionObserver(
 
             if (rawValue === "824") {
                 animateValue(element, 0, target, 1200, (value) => (value / 100).toFixed(2));
+            } else if (rawValue === "7") {
+                animateValue(element, 0, target, 1200, (value) => `${Math.round(value)}`);
             } else if (target >= 1000) {
                 animateValue(element, 0, target, 1200, (value) => `${Math.round(value)}`);
             } else {
@@ -107,33 +157,71 @@ function updateActiveSection() {
     });
 }
 
+function setRevealDelays() {
+    const staggerGroups = [
+        ".highlight-strip .highlight-card",
+        ".story-rail .story-card",
+        ".stats-grid .stat-card",
+        ".skills-grid .skill-card",
+        ".projects-grid .project-card",
+        ".timeline .timeline-card",
+        ".contact-list .contact-item"
+    ];
+
+    staggerGroups.forEach((selector) => {
+        document.querySelectorAll(selector).forEach((element, index) => {
+            element.style.setProperty("--reveal-delay", `${index * 90}ms`);
+        });
+    });
+}
+
+function setNestedAnimationIndexes() {
+    document.querySelectorAll(".skill-tags, .info-pills").forEach((group) => {
+        group.querySelectorAll("span").forEach((tag, index) => {
+            tag.style.setProperty("--tag-index", index);
+        });
+    });
+
+    document.querySelectorAll(".clean-list").forEach((list) => {
+        list.querySelectorAll("li").forEach((item, index) => {
+            item.style.setProperty("--item-index", index);
+        });
+    });
+}
+
+function bindSpotlightMotion() {
+    if (motionSafeQuery.matches) {
+        return;
+    }
+
+    spotlightItems.forEach((item) => {
+        item.addEventListener("pointermove", (event) => {
+            const rect = item.getBoundingClientRect();
+            item.style.setProperty("--spotlight-x", `${event.clientX - rect.left}px`);
+            item.style.setProperty("--spotlight-y", `${event.clientY - rect.top}px`);
+        });
+    });
+}
+
+function updateTimelineProgress() {
+    if (!timeline) {
+        return;
+    }
+
+    const rect = timeline.getBoundingClientRect();
+    const viewportOffset = window.innerHeight * 0.72;
+    const distance = rect.height + viewportOffset;
+    const progress = Math.min(Math.max((viewportOffset - rect.top) / distance, 0), 1);
+
+    timeline.style.setProperty("--timeline-progress", progress.toFixed(3));
+}
+
 window.addEventListener("scroll", updateActiveSection, { passive: true });
 window.addEventListener("load", updateActiveSection);
+window.addEventListener("scroll", updateTimelineProgress, { passive: true });
+window.addEventListener("resize", updateTimelineProgress);
+window.addEventListener("load", updateTimelineProgress);
 
-window.addEventListener("scroll", updateMotionScene, { passive: true });
-window.addEventListener("load", updateMotionScene);
-
-window.addEventListener("mousemove", (event) => {
-    root.style.setProperty("--pointer-x", `${event.clientX}px`);
-    root.style.setProperty("--pointer-y", `${event.clientY}px`);
-
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-    const tiltX = ((centerY - event.clientY) / centerY) * 4;
-    const tiltY = ((event.clientX - centerX) / centerX) * 3;
-
-    root.style.setProperty("--scene-tilt-x", `${tiltX.toFixed(2)}deg`);
-    root.style.setProperty("--scene-tilt-y", `${tiltY.toFixed(2)}deg`);
-});
-
-function updateMotionScene() {
-    const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-    const progress = Math.min(window.scrollY / scrollable, 1);
-    const rocketShift = -progress * (window.innerHeight * 1.9);
-
-    root.style.setProperty("--scroll-progress", progress.toFixed(4));
-    root.style.setProperty("--rocket-shift", `${rocketShift.toFixed(2)}px`);
-}
 
 if (contactForm) {
     contactForm.addEventListener("submit", (event) => {
@@ -203,3 +291,4 @@ function showToast(message, isError = false) {
         window.setTimeout(() => toast.remove(), 250);
     }, 2600);
 }
+
