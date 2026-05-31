@@ -565,6 +565,13 @@ img {
     margin-bottom: 0.35rem;
 }
 
+.hero-float-cluster {
+    position: relative;
+    min-height: 7.5rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1.2rem;
+}
+
 .floating-chip {
     position: absolute;
     min-width: 11rem;
@@ -589,19 +596,19 @@ img {
 }
 
 .chip-one {
-    left: -1rem;
-    top: 4.2rem;
+    left: 0;
+    top: 1rem;
 }
 
 .chip-two {
-    right: -0.5rem;
-    top: 14.5rem;
+    left: 34%;
+    top: 0;
     animation-delay: -1.3s;
 }
 
 .chip-three {
-    left: 1rem;
-    bottom: 3rem;
+    right: 0;
+    top: 1.35rem;
     animation-delay: -2.4s;
 }
 
@@ -612,6 +619,19 @@ img {
     }
     50% {
         transform: translateY(-12px);
+    }
+}
+
+@keyframes floatDrift {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    35% {
+        transform: translate3d(10px, -10px, 0);
+    }
+    70% {
+        transform: translate3d(-8px, 8px, 0);
     }
 }
 
@@ -667,6 +687,55 @@ img {
 
 .story-section {
     padding-top: 2rem;
+}
+
+.section-floats {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.section-float {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.7rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(16px);
+    color: rgba(245, 247, 251, 0.78);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16);
+    animation: floatDrift 16s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.float-story-one {
+    left: 6%;
+    top: 11rem;
+}
+
+.float-story-two {
+    right: 8%;
+    top: 19rem;
+    animation-delay: -5s;
+}
+
+.float-project-one {
+    left: 7%;
+    top: 10rem;
+}
+
+.float-project-two {
+    right: 9%;
+    top: 16rem;
+    animation-delay: -6.5s;
 }
 
 .cinematic-block {
@@ -1210,6 +1279,12 @@ img {
         width: min(15rem, 42vw);
     }
 
+    .hero-float-cluster {
+        min-height: auto;
+        margin-top: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
     .highlight-strip {
         grid-template-columns: 1fr;
     }
@@ -1237,6 +1312,10 @@ img {
         right: auto;
         top: auto;
         bottom: auto;
+    }
+
+    .section-float {
+        display: none;
     }
 }
 
